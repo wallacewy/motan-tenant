@@ -8,7 +8,7 @@ RUN \
     rm -rf motan.war &&\
     { \
         echo '#!/usr/bin/env bash'; \
-        echo 'java -cp /opt/motan/WEB-INF/lib/*:/opt/motan/WEB-INF/classes/ com.wallace.motan.Server'; \
+        echo 'java -cp /opt/motan/WEB-INF/lib/*:/opt/motan/WEB-INF/classes/ com.wallace.motan.TenantController'; \
     } > /usr/bin/start-app.sh &&\
     chmod +x /usr/bin/start-app.sh &&\
     echo 'done'
