@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+if [ $# -ne 1 ]; then
+    echo $0: usage: ./deploy.sh remote_deploy
+    exit 1
+fi
+
+remote_deploy=$1
+docker_registry="10.58.9.201:5000"
+docker_name="motan-tenant"
+
+if [ $remote_deploy == 'true' ]; then
+    scp -o StrictHostKeyChecking=no deploy.sh root@10.58.9.102:/opt
+    ssh -o StrictHostKeyChecking=no root@10.58.9.102 "chmod +x /opt/deploy.sh; /opt/deploy.sh false; rm -rf /opt/deploy.sh"
+else
+    docker run -d -p 8080:8080 $docker_registry/$docker_name:${GIT_COMMIT}
+fi
