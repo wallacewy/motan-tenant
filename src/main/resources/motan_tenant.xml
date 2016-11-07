@@ -6,11 +6,11 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.sprin
    http://api.weibo.com/schema/motan http://api.weibo.com/schema/motan.xsd">
 
     <!-- reference to the remote service -->
-    <motan:referer id="customerService" interface="com.wallace.motan.CustomerService" registry="my_consul" group="v1"/>
-    <motan:referer id="employeeService" interface="com.wallace.motan.EmployeeService" registry="my_consul" group="v1"/>
-    <motan:referer id="itemService" interface="com.wallace.motan.ItemService" registry="my_consul" group="v1"/>
-    <motan:referer id="orderService" interface="com.wallace.motan.OrderService" registry="my_consul" group="v1"/>
-    <motan:referer id="shippingService" interface="com.wallace.motan.ShippingService" registry="my_consul" group="v1"/>
+    <motan:referer id="customerService" interface="com.wallace.motan.CustomerService" registry="my_consul" group="${group}"/>
+    <motan:referer id="employeeService" interface="com.wallace.motan.EmployeeService" registry="my_consul" group="${group}"/>
+    <motan:referer id="itemService" interface="com.wallace.motan.ItemService" registry="my_consul" group="${group}"/>
+    <motan:referer id="orderService" interface="com.wallace.motan.OrderService" registry="my_consul" group="${group}"/>
+    <motan:referer id="shippingService" interface="com.wallace.motan.ShippingService" registry="my_consul" group="${group}"/>
 
     <motan:registry regProtocol="consul" name="my_consul" address="10.58.9.201:8500"/>
 </beans>
